@@ -1,11 +1,6 @@
 **Notice: Development on this repository is currently on pause during our v3 rearchitecture. Please see [storj/storj](https://github.com/storj/storj) for ongoing v3 development.**
 
-# node-libstorj
-
-[![Storj.io](https://storj.io/img/storj-badge.svg)](https://storj.io)
-[![Build Status](https://travis-ci.org/Storj/node-libstorj.svg?branch=master)](https://travis-ci.org/Storj/node-libstorj)
-[![npm version](https://badge.fury.io/js/storj.svg)](https://badge.fury.io/js/storj)
-[![Chat on rocket.chat](https://img.shields.io/badge/chat-rocket.chat-red.svg)](https://community.storj.io/channel/dev)
+# node-lib
 
 Node.js library for encrypted file transfer on the Storj network via bindings to [libstorj](https://github.com/Storj/libstorj).
 
