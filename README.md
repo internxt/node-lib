@@ -1,5 +1,11 @@
 **Notice: Development on this repository is currently on pause during our v3 rearchitecture. Please see [storj/storj](https://github.com/storj/storj) for ongoing v3 development.**
 
+# Prerequisites
+
+```
+sudo apt install python build-essential
+```
+
 # node-lib
 
 Node.js library for encrypted file transfer on the Storj network via bindings to [libstorj](https://github.com/Storj/libstorj).
