@@ -551,7 +551,7 @@ describe('libstorj', function() {
       finishedCallback: function () {}
     };
 
-    it('will throw with unexpected argument number', function() {
+    it('will throw with unexpected argument number (1)', function() {
       const env = new libstorj.Environment(defaultConfig);
       expect(function() {
         env.storeFile();
@@ -581,7 +581,7 @@ describe('libstorj', function() {
   });
 
   describe('#storeFileCancel', function () {
-    it('will throw with unexpected argument number', function() {
+    it('will throw with unexpected argument number (2)', function() {
       const env = new libstorj.Environment(defaultConfig);
       expect(function() {
         env.storeFileCancel();
