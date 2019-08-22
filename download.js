@@ -8,6 +8,26 @@ const fs = require('fs');
 const basedir = path.resolve(__dirname);
 const libstorj = require('./package.json').libstorj;
 const releases = libstorj.releases;
+const crypto = require('crypto');
+
+function sha256sum_fromFile(path) {
+  console.log('Checking checksum...');
+  return new Promise((resolve, reject) => {
+    try {
+      var file = fs.createReadStream(path);
+      var hash = crypto.createHash('sha256');
+      hash.setEncoding('hex');
+
+      file.on('end', function () {
+        hash.end();
+        resolve(hash.read());
+      });
+      file.pipe(hash);
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
 
 let installed = true;
 try {
@@ -54,16 +74,23 @@ if (fs.existsSync(target)) {
   execSync(download);
 }
 
-const hashbuf = execSync(hasher);
-const hash = hashbuf.toString().trim();
-if (hash === checksum) {
-  stdout.write(`Verified libstorj: \n  file: ${target}\n  hash: ${checksum}\n`);
-} else {
-  stderr.write(`Unable to verify libstorj release: ${target} \n  expect: ${checksum}\n  actual: ${hash}\n`);
+//const hashbuf = execSync(hasher);
+//const hash = hashbuf.toString().trim();
+sha256sum_fromFile(target).then(hash => {
+  if (hash === checksum) {
+    console.log('Checksum verified!');
+    stdout.write(`Verified libstorj: \n  file: ${target}\n  hash: ${checksum}\n`);
+  } else {
+    stderr.write(`Unable to verify libstorj release: ${target} \n  expect: ${checksum}\n  actual: ${hash}\n`);
+    process.exit(1);
+  }
+
+  stdout.write(`Extracting target: ${target}\n`);
+  execSync(extract);
+
+  process.exit(0);
+}).catch(err => {
+  stderr.write(`Error: ${err}`);
   process.exit(1);
-}
+});
 
-stdout.write(`Extracting target: ${target}\n`);
-execSync(extract);
-
-process.exit(0);
