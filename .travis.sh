@@ -2,8 +2,8 @@
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     HOMEBREW_NO_AUTO_UPDATE=1 brew install curl nettle libmicrohttpd libuv
-    git clone https://github.com/Storj/libstorj.git
-    cd libstorj
+    git clone https://github.com/internxt/CLI.git
+    cd CLI
     ./autogen.sh
     ./configure
     sudo make install

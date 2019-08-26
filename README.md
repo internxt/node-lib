@@ -25,7 +25,7 @@ First setup the storj environment with authentication and encryption options:
 const { Environment } = require('storj');
 
 const storj = new Environment({
-  bridgeUrl: 'https://api.storj.io',
+  bridgeUrl: 'https://api.internxt.com',
   bridgeUser: 'user@domain.com',
   bridgePass: 'password',
   encryptionKey: 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about',
