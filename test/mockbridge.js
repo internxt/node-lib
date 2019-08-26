@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const basicauth = require('basic-auth');
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 function forceStatus(req, res, next) {
   const statusRegex = /status-(\d{3})$/;
   const userAgent = req.headers['user-agent'];
