@@ -1,20 +1,18 @@
-**Notice: Development on this repository is currently on pause during our v3 rearchitecture. Please see [storj/storj](https://github.com/storj/storj) for ongoing v3 development.**
-
 # Prerequisites
 
 ```
-sudo apt install python build-essential
+sudo apt install python build-essential curl
 ```
 
 # node-lib
 
-Node.js library for encrypted file transfer on the Storj network via bindings to [libstorj](https://github.com/Storj/libstorj).
+Node.js library for encrypted file transfer on the Internxt network via bindings to [CLI](https://github.com/internxt/CLI).
 
 ## Example Usage
 
 Install via npm:
 ```
-npm install github:storj/node-libstorj --save
+npm install github:internxt/node-lib --save
 ```
 
 Please see [`./examples`](/examples) directory for example code usage.
@@ -107,7 +105,7 @@ Methods available on an instance of `Environment`:
 
 ## Development & Testing
 
-If you do not already have `libstorj` installed on your system, you can install from the directions at https://github.com/Storj/libstorj This isn't required, however it's best for development.
+If you do not already have `CLI` installed on your system, you can install from the directions at https://github.com/internxt/CLI This isn't required, however it's best for development.
 
 If you do not have `node-gyp` installed:
 
